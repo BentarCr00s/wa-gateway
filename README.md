@@ -1,136 +1,110 @@
-# Headless Multi Session Whatsapp Gateway NodeJS
+# Selamat datang di Gateway Whatsapp Multi Sesi Tanpa Kepala NodeJS
 
-Easy Setup Headless multi session Whatsapp Gateway with NodeJS
+Pemasangan mudah Gateway Whatsapp multi sesi tanpa kepala dengan NodeJS
 
-- Support multi device
-- Support multi session / multi phone number
-- Anti delay message
-- Bulk Message
+- Mendukung multi perangkat
+- Mendukung multi sesi / multi nomor telepon
+- Pesan anti keterlambatan
+- Pesan Massal
 
-#### Based on [wa-multi-session](https://github.com/mimamch/wa-multi-session)
+#### Berdasarkan [wa-multi-session](https://github.com/mimamch/wa-multi-session)
 
-## Environment Variables
+## Variabel Lingkungan
 
-To run this project, you will need to add the following environment variables to your .env file
+Untuk menjalankan proyek ini, Anda perlu menambahkan variabel lingkungan berikut ke file .env Anda
 
-```
+```bash
 // .env
 
-PORT=5001 // which port to running on your machine
-KEY=mysupersecretkey # For Securing Some Data
+PORT=5001 // port yang digunakan di mesin Anda
+KEY=mysupersecretkey # Untuk Mengamankan Beberapa Data
 ```
 
-## Install and Running
+## Instalasi dan Menjalankan
 
-Clone the project
+Klon proyek
 
 ```bash
   git clone https://github.com/mimamch/wa_gateway.git
 ```
 
-Go to the project directory
+Buka direktori proyek
 
 ```bash
   cd wa_gateway
 ```
 
-Install dependencies
+Pasang dependensi
 
 ```bash
   npm install
 ```
 
-Start the server
+Mulai server
 
 ```bash
   npm run start
 ```
 
-Open On Browser & Start New Session
+Buka di Browser & Mulai Sesi Baru
 
 ```bash
   http://localhost:5000/start-session?session=mysession&scan=true
 ```
 
-## API Reference
+## Referensi API
 
-#### Add new session
+#### Tambahkan sesi baru
 
+```bash
+  GET /start-session?session=NAMA_SESI_BARU&scan=true
 ```
-  GET /start-session?session=NEW_SESSION_NAME&scan=true
-```
 
-| Parameter | Type      | Description                            |
-| :-------- | :-------- | :------------------------------------- |
-| `session` | `string`  | **Required**. Create Your Session Name |
-| `scan`    | `boolean` | Print QR at Browser                    |
+| Parameter | Tipe      | Deskripsi                               |
+| :-------- | :-------- | :-------------------------------------- |
+| `session` | `string`  | **Wajib**. Buat Nama Sesi Anda         |
+| `scan`    | `boolean` | Tampilkan QR di Browser                 |
 
-#### Send Text Message
+#### Kirim Pesan Teks
 
-```
+```bash
   POST /send-message
 ```
 
-| Body      | Type     | Description                                                              |
+| Body      | Tipe     | Deskripsi                                                               |
 | :-------- | :------- | :----------------------------------------------------------------------- |
-| `session` | `string` | **Required**. Session Name You Have Created                              |
-| `to`      | `string` | **Required**. Receiver Phone Number with Country Code (e.g: 62812345678) |
-| `text`    | `string` | **Required**. Text Message                                               |
+| `session` | `string` | **Wajib**. Nama Sesi yang Telah Anda Buat                               |
+| `to`      | `string` | **Wajib**. Nomor Telepon Penerima dengan Kode Negara (contoh: 62812345678) |
+| `text`    | `string` | **Wajib**. Pesan Teks                                                  |
 
-#### Send Bulk Message
+#### Kirim Pesan Massal
 
-```
+```bash
   POST /send-bulk-message
 ```
 
-| Body      | Type     | Description                                         |
+| Body      | Tipe     | Deskripsi                                         |
 | :-------- | :------- | :-------------------------------------------------- |
-| `session` | `string` | **Required**. Session Name You Have Created         |
-| `data`    | `array`  | **Required**. Array Of Object Message Data          |
-| `delay`   | `number` | Delay Per-message in Miliseconds, Default to 5000ms |
+| `session` | `string` | **Wajib**. Nama Sesi yang Telah Anda Buat         |
+| `data`    | `array`  | **Wajib**. Array Data Pesan Objek                |
+| `delay`   | `number` | Jeda Per-pesan dalam Milidetik, Default ke 5000ms |
 
-#### Delete session
+#### Hapus sesi
 
+```bash
+  GET /delete-session?session=NAMA_SESI
 ```
-  GET /delete-session?session=SESSION_NAME
-```
 
-| Parameter | Type     | Description                            |
-| :-------- | :------- | :------------------------------------- |
-| `session` | `string` | **Required**. Create Your Session Name |
+| Parameter | Tipe     | Deskripsi                               |
+| :-------- | :------- | :-------------------------------------- |
+| `session` | `string` | **Wajib**. Buat Nama Sesi Anda          |
 
-#### Get All Session ID
+#### Dapatkan Semua ID Sesi
 
-```
+```bash
   GET /sessions?key=mysupersecretkey
 ```
 
-| Parameter | Type     | Description                      |
+| Parameter | Tipe     | Deskripsi                      |
 | :-------- | :------- | :------------------------------- |
-| `key`     | `string` | **Required**. Key on ".env" file |
-
-## Changelog
-
-V3.2.0
-
-- Add Get All Session ID
-- Add Key for secret data
-- Update README.md
-
-## Upgrading
-
-```
-npm install wa-multi-session@latest
-```
-
-## Documentation
-
-For detailed documentation, including guides and API references, please visit the [official documentation](https://github.com/mimamch/wa-gateway).
-
-## Contributing
-
-Contributions are welcome! Please follow the guidelines outlined in the [CONTRIBUTING.md](https://github.com/mimamch/wa-gateway/blob/main/CONTRIBUTING.md) file.
-
-## License
-
-This library is licensed under the [MIT License](https://github.com/mimamch/wa-gateway/blob/main/LICENSE).
+| `key`     | `string` | **Wajib**. Kunci pada file ".env" |
