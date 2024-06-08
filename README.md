@@ -22,10 +22,10 @@ KEY=mysupersecretkey # Untuk Mengamankan Beberapa Data
 
 ## Instalasi dan Menjalankan
 
-Klon proyek
+Clone proyek
 
 ```bash
-  git clone https://github.com/mimamch/wa_gateway.git
+  git clone https://github.com/BentarCr00s/wa-gateway
 ```
 
 Buka direktori proyek
